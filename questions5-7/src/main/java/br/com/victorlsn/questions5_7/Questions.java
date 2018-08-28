@@ -1,5 +1,7 @@
 package br.com.victorlsn.questions5_7;
 
+import android.support.annotation.NonNull;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -32,5 +34,31 @@ public class Questions {
         }
 
         return previousNode;
+    }
+
+    public static String searchForIntersectionNode(Node head1, Node head2) {
+        int sizeDifference = Math.abs(head1.getNodeSize(0) - head2.getNodeSize(0));
+
+        if (head1.getNodeSize(0) > head2.getNodeSize(0)) {
+            return getIntersectionNode(head1, head2, sizeDifference);
+        }
+        else {
+            return getIntersectionNode(head2, head1, sizeDifference);
+        }
+    }
+
+    public static String getIntersectionNode(@NonNull Node bigNode, @NonNull Node smallNode, int sizeDifference) {
+        for (int i = 0; i < sizeDifference; i++) {
+            bigNode = bigNode.getNext();
+        }
+        while (bigNode != null && smallNode != null) {
+            if (bigNode.getValue().equals(smallNode.getValue())) {
+                return bigNode.getValue();
+            }
+            bigNode = bigNode.getNext();
+            smallNode = smallNode.getNext();
+        }
+
+        return null;
     }
 }

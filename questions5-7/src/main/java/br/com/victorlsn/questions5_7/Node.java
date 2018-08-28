@@ -28,6 +28,14 @@ public class Node {
         this.next = next;
     }
 
+    public int getNodeSize(int currentSize) {
+        currentSize++;
+        if (getNext() != null) {
+            return getNodeSize(currentSize);
+        }
+        return currentSize;
+    }
+
     @Override
     public String toString() {
         return next != null ? value + "\n" + next.toString() : value;
