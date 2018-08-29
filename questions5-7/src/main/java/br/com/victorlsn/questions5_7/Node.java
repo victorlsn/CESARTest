@@ -31,7 +31,7 @@ public class Node {
     public int getNodeSize(int currentSize) {
         currentSize++;
         if (getNext() != null) {
-            return getNodeSize(currentSize);
+            return getNext().getNodeSize(currentSize);
         }
         return currentSize;
     }

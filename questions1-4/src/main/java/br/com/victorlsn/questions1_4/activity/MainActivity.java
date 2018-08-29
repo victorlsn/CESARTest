@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         searchView.setActivated(true);
-        searchView.setQueryHint("Type your seach query here");
+        searchView.setQueryHint("Type your search query here");
         searchView.onActionViewExpanded();
         searchView.setIconified(false);
         searchView.clearFocus();

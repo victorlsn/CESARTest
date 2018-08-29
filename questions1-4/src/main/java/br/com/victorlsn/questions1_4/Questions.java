@@ -99,6 +99,7 @@ public class Questions {
                 typoChar++;
             }
             else if (word.length() < typo.length()) {
+                if (typos == 0) typos++;
                 if (typo.charAt(typoChar) != word.charAt(wordChar)) {
                     typos++;
                     typoChar++;

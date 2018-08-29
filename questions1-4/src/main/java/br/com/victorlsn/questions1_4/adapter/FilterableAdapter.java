@@ -66,8 +66,13 @@ public class FilterableAdapter extends RecyclerView.Adapter<FilterableAdapter.Vi
                     filtered = items;
                 } else {
                     for (String item : items) {
+
+                        item = item.toLowerCase();
+                        query = query.toLowerCase();
+
                         if ((Questions.hasZeroOrOneTypos(item, query) && !Questions.isPartialPermutation(item, query)) ||
-                                (!Questions.hasZeroOrOneTypos(item, query) && Questions.isPartialPermutation(item, query))) {
+                                (!Questions.hasZeroOrOneTypos(item, query) && Questions.isPartialPermutation(item, query)) ||
+                                item.equals(query)) {
                             filtered.add(item);
                         }
                     }
