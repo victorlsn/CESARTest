@@ -64,15 +64,6 @@ public class Questions {
             smallNodeCopy = smallNodeCopy.getNext();
         }
 
-        // In case the biggest node is longer "after" the intersection
-        while (bigNode != null && smallNode != null) {
-            if (bigNode.getValue().equals(smallNode.getValue())) {
-                return bigNode;
-            }
-            bigNode = bigNode.getNext();
-            smallNode = smallNode.getNext();
-        }
-
         return null;
     }
 }
