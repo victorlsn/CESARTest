@@ -28,6 +28,35 @@ public class QuestionsUnitTest {
         String cleanMessages = head.toString();
 
         assertNotEquals(messages, cleanMessages);
+
+        head = new Node("Hi, this is the first email! Please reply");
+        head.setNext(new Node("Hi, this is the first reply!"));
+        head.getNext().setNext(new Node("Hi, this is the second reply!"));
+        head.getNext().getNext().setNext(new Node("Hi, this is the first reply!"));
+        head.getNext().getNext().getNext().setNext(new Node("Hi, this is the third reply!"));
+        head.getNext().getNext().getNext().getNext().setNext(new Node("Hi, this is the second reply!"));
+        head.getNext().getNext().getNext().getNext().getNext().setNext(new Node("Hi, this is the first reply!"));
+        head.getNext().getNext().getNext().getNext().getNext().getNext().setNext(new Node("Hi, this is the second reply!"));
+
+        Node cleanHead = new Node("Hi, this is the first email! Please reply");
+        cleanHead.setNext(new Node("Hi, this is the first reply!"));
+        cleanHead.getNext().setNext(new Node("Hi, this is the second reply!"));
+        cleanHead.getNext().getNext().setNext(new Node("Hi, this is the third reply!"));
+
+
+        // Comparison before cleaning
+        messages = head.toString();
+
+        cleanMessages = cleanHead.toString();
+
+        assertNotEquals(messages, cleanMessages);
+
+        Questions.removeDuplicateMessages(head);
+
+        // Comparison after cleaning
+        messages = head.toString();
+
+        assertEquals(messages, cleanMessages);
     }
 
     @Test
