@@ -40,6 +40,7 @@ public class Questions {
     public static Node searchForIntersectionNode(Node head1, Node head2) {
         int sizeDifference = Math.abs(head1.getNodeSize(0) - head2.getNodeSize(0));
 
+        // Check for node sizes and call method with correct parameters;
         if (head1.getNodeSize(0) > head2.getNodeSize(0)) {
             return getIntersectionNode(head1, head2, sizeDifference);
         }
@@ -52,7 +53,6 @@ public class Questions {
         Node bigNodeCopy = bigNode;
         Node smallNodeCopy = smallNode;
 
-        // In case the biggest node is longer "before" the intersection
         for (int i = 0; i < sizeDifference; i++) {
             bigNodeCopy = bigNodeCopy.getNext();
         }
